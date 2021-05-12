@@ -1,13 +1,12 @@
 import React from 'react';
 import Questions from './Questions';
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      <h1>React Quiz</h1>
+    <div>
       <Questions />
     </div>
   );
-}
+};
 
 export default App;

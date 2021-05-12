@@ -3,15 +3,6 @@ import React, { useState } from 'react';
 const Questions = () => {
   const questions = [
     {
-      questionText: 'who is current soccer world champion?',
-      answerOptions: [
-        { answerText: 'Brazil', isCorrect: false },
-        { answerText: 'Germany', isCorrect: false },
-        { answerText: 'Argentina', isCorrect: false },
-        { answerText: 'France', isCorrect: true },
-      ],
-    },
-    {
       questionText: 'What is the capital of France?',
       answerOptions: [
         { answerText: 'New York', isCorrect: false },
@@ -30,21 +21,21 @@ const Questions = () => {
       ],
     },
     {
-      questionText: 'Android was developed by which company?',
-      answerOptions: [
-        { answerText: 'Microsoft', isCorrect: false },
-        { answerText: 'Google', isCorrect: true },
-        { answerText: 'Nokia', isCorrect: false },
-        { answerText: 'SpaceX', isCorrect: false },
-      ],
-    },
-    {
       questionText: 'The iPhone was created by which company?',
       answerOptions: [
         { answerText: 'Apple', isCorrect: true },
         { answerText: 'Intel', isCorrect: false },
         { answerText: 'Amazon', isCorrect: false },
         { answerText: 'Microsoft', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'How many Harry Potter books are there?',
+      answerOptions: [
+        { answerText: '1', isCorrect: false },
+        { answerText: '4', isCorrect: false },
+        { answerText: '6', isCorrect: false },
+        { answerText: '7', isCorrect: true },
       ],
     },
   ];
@@ -67,7 +58,7 @@ const Questions = () => {
   };
 
   return (
-    <div>
+    <div className='app'>
       {showScore ? (
         <div className='score-section'>
           You scored {score} out of {questions.length}
