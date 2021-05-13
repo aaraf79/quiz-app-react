@@ -2,34 +2,22 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Questions = () => {
-  const [allQuestions, setAllQuestions] = useState('');
+  const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
 
-  const questions = [
-    {
-      questionText: 'What is the capital of France?',
-      answerOptions: [
-        { answerText: 'New York', isCorrect: false },
-        { answerText: 'London', isCorrect: false },
-        { answerText: 'Paris', isCorrect: true },
-        { answerText: 'Dublin', isCorrect: false },
-      ],
-    },
-  ];
+  const url = 'http://localhost:3005/questions';
 
-  // const url = 'http://localhost:3005/questions';
-
-  // useEffect(() => {
-  //   axios
-  //     .get(url)
-  //     .then((response) => {
-  //       // setQuestions(response);
-  //       console.log(response);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((response) => {
+        setQuestions(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
@@ -44,13 +32,9 @@ const Questions = () => {
     }
   };
 
-  return (
-    <div className='app'>
-      {showScore ? (
-        <div className='score-section'>
-          You scored {score} out of {questions.length}
-        </div>
-      ) : (
+  const showQuestions = () => {
+    if (questions.length > 0) {
+      return (
         <>
           <div className='question-section'>
             <div className='question-count'>
@@ -70,6 +54,20 @@ const Questions = () => {
             ))}
           </div>
         </>
+      );
+    }
+    return null;
+  };
+
+  console.log('absdf', questions[currentQuestion]);
+  return (
+    <div className='app'>
+      {showScore ? (
+        <div className='score-section'>
+          You scored {score} out of {questions.length}
+        </div>
+      ) : (
+        showQuestions()
       )}
     </div>
   );
