@@ -8,7 +8,7 @@ body {
 }
 * {
   font-family: 'Verdana', cursive, sans-serif;
-  color: #ffffff;
+  color: #111010;
 }
 
 body {
@@ -20,8 +20,8 @@ body {
 }
 
 .app {
-  background-color: #252d4a;
-  width: 450px;
+  background-color: lightseagreen;
+  width: 650px;
   min-height: 200px;
   height: min-content;
   border-radius: 15px;
@@ -64,19 +64,19 @@ body {
 button {
   width: 100%;
   font-size: 16px;
-  color: #ffffff;
-  background-color: #252d4a;
+  color: #111010;
+  background-color: rgb(161, 211, 241);
   border-radius: 15px;
   display: flex;
   padding: 5px;
   justify-content: flex-start;
   align-items: center;
-  border: 5px solid #234668;
+  border: 5px solid #6d7a88;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #555e7d;
+  background-color: #bfc8eb;
 }
 
 button:focus {

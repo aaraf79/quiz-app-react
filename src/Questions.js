@@ -10,13 +10,11 @@ const Questions = () => {
   const url = 'http://localhost:3005/questions';
 
   useEffect(() => {
-    axios
-      .get(url)
-      .then((response) => {
-        setQuestions(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => console.log(error));
+    const fetchData = async () => {
+      const response = await axios.get(url);
+      setQuestions(response.data);
+    };
+    fetchData();
   }, []);
 
   const handleAnswerOptionClick = (isCorrect) => {
@@ -47,6 +45,7 @@ const Questions = () => {
           <div className='answer-section'>
             {questions[currentQuestion].answerOptions.map((answerOption) => (
               <button
+                key={questions.id}
                 onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
               >
                 {answerOption.answerText}
@@ -59,7 +58,6 @@ const Questions = () => {
     return null;
   };
 
-  console.log('absdf', questions[currentQuestion]);
   return (
     <div className='app'>
       {showScore ? (
